@@ -61,7 +61,7 @@ winer <br>
 <img width="998" height="407" alt="image" src="https://github.com/user-attachments/assets/9d211e67-a926-468d-b303-e30827ea18a9" />
 
 <br>
-delete cookies except for path / and paste admin (>admin panel>delete carlos)
+in browser: delete cookies except for path / and paste admin (>admin panel>delete carlos)
 
 
 
