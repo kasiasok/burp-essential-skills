@@ -32,49 +32,47 @@ Nawet jeśli musisz używać cache (pamięci podręcznej), np. dla wydajności, 
 https://portswigger.net/research/practical-web-cache-poisoning
 
    <br><br>
-
+<hr> <br><br>
 Lab: Web cache poisoning with an unkeyed header
 
  <br>
 
 unkeyed input – ryzyko web cache poisoning
 
-  <br>
-
 Unkeyed input to dane, które wpływają na odpowiedź serwera, ale nie są brane pod uwagę przy tworzeniu klucza cache, przez co mogą powodować błędy w przechowywaniu i zwracaniu odpowiedzi.
 
   <br>
 
-1.original request 2x <br>
+1.original request 2x 
 
-Miss (response nie znajduje w cache) <br>
+Miss (response nie znajduje w cache) 
 
-Hit (response już jest w cache) <br>
+Hit (response już jest w cache) 
  <br>
+ 
+
+2. /?cb=kasia123  
+Cache: Miss 
+param min> guest headers 
+ <br>
+
+
+3. wynik w target > sitemap> issues 
+
+x-forwarded-host header is an unkeyed header 
+ <br>
+
+
+4.  /?cb=kasia123 
+X-Forwarded-Host: wartość URL exploit serwera 
+
+
+„Hej, traktuj exploit-server.com jako host tej aplikacji.” 
+
+Bo Nagłówek X-Forwarded-Host jest używany głównie przez: reverse proxy, load balancer, CDN 
+
   <br>
 
-2. /?cb=kasia123  <br>
-Cache: Miss <br>
-param min> guest headers <br>
- <br>
-  <br>
-
-3. wynik w target > sitemap> issues <br>
-
-x-forwarded-host header is an unkeyed header <br>
- <br>
-  <br>
-
-4.  /?cb=kasia123 <br>
-X-Forwarded-Host: wartość URL exploit serwera <br>
- <br>
-
-„Hej, traktuj exploit-server.com jako host tej aplikacji.” <br>
-
-Bo Nagłówek X-Forwarded-Host jest używany głównie przez: reverse proxy, load balancer, CDN <br>
-
-  <br>
- <br>
 5. exploi server odbity w body. Kopiujemy zasob, który jest dalej. <br>
 
 Jest uzyty przez .js tracking file <br>
