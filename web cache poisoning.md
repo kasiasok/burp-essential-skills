@@ -312,5 +312,9 @@ x-host:
 
 response !!! VARY:USER AGENT
 
-<img width="1197" height="533" alt="image" src="https://github.com/user-attachments/assets/0d0758af-4be4-459c-ac20-771c4afec208" />
+serwer w odpowiedzi HTML wskazuje na złośliwy host, a przeglądarka ten plik pobierze
+
+<img width="1196" height="560" alt="image" src="https://github.com/user-attachments/assets/2fe8b478-0c9c-40a8-a70b-aee9332cab48" />
+
+
 
