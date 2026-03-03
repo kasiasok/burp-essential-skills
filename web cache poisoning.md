@@ -200,6 +200,7 @@ fehost
 <img width="1204" height="522" alt="image" src="https://github.com/user-attachments/assets/8e9f2cb0-2f5e-4182-9910-a49e878a9402" />
 
 
+
 (musi być hit w odpowiedzi, żeby się zapisało w cache):
 
 <img width="1235" height="537" alt="image" src="https://github.com/user-attachments/assets/1fcd3e39-90a7-4a2b-bd1b-93f7b424b2c9" />
