@@ -302,19 +302,20 @@ GET change to /resources path
 You need to poison the cache with a response that executes alert(document.cookie) in the visitor's browser. 
 Target users: Należy jednak upewnić się, że odpowiedź zostanie wysłana do konkretnej grupy użytkowników, do której należy dana ofiara.
 
-Vary to nagłówek odpowiedzi HTTP, który mówi cache:
-„Ta odpowiedź zależy od konkretnego nagłówka z requestu — jeśli on się zmieni, stwórz nowe cache.”
-
-1. GET /cb=1
+GET /cb=1
 resp: miss
 param miner > guess header
 x-host:
 
-CACHE KEY HERE: REQUEST METHOD & IT'S VALUE (/path/in/GET)
+CACHE KEY HERE: 
+REQUEST METHOD & IT'S VALUE (/path/in/GET) & USER AGENT 
+(VARY:USER AGENT)
 
-response !!! VARY:USER AGENT
+Vary to nagłówek odpowiedzi HTTP, który mówi cache:
+„Ta odpowiedź zależy od konkretnego nagłówka z requestu — jeśli on się zmieni, stwórz nowe cache.”
 
-serwer w odpowiedzi HTML wskazuje na złośliwy host, a przeglądarka ten plik pobierze
+X-host: malicioussource.io
+Serwer w odpowiedzi HTML wskazuje na złośliwy host, a przeglądarka ten plik pobierze
 
 <img width="1196" height="560" alt="image" src="https://github.com/user-attachments/assets/2fe8b478-0c9c-40a8-a70b-aee9332cab48" />
 
