@@ -38,7 +38,7 @@ https://portswigger.net/research/practical-web-cache-poisoning
 
    <br><br>
 <hr> <br><br>
-Lab: Web cache poisoning with an unkeyed header
+<h2>Lab: Web cache poisoning with an unkeyed header</h2>
 
  <br>
 
@@ -125,7 +125,7 @@ ad4.<br>
 <br><br>
 <hr>
 <br><br>
-Lab: Web cache poisoning with an unkeyed cookie <br>
+<h2>Lab: Web cache poisoning with an unkeyed cookie <h2>
  <br>
 1.Check / request 
 Cache-Control: max-age=30 - może być cache’owana przez 30 sekund,
@@ -198,7 +198,7 @@ hit
   <hr>
    <br> 
 
-Lab: Web cache poisoning with multiple headers <br>
+<h2>Lab: Web cache poisoning with multiple headers <br><h2>
  <br>
 1.test cache miss hit 
 
@@ -238,7 +238,7 @@ browsre lab/?cb=6
 <hr>
 
 
-Lab: Targeted web cache poisoning using an unknown header
+<h2>Lab: Targeted web cache poisoning using an unknown header<h2>
 
 1. GET /cb=1
 resp: miss
