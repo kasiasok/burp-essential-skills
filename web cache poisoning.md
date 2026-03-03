@@ -171,12 +171,7 @@ fehost:
 fehost=prod-cache-03
 
 RES:
-```
-    <script>
-
-            data = {"host":"0a0a007c030ae19c80036c210097001a.web-security-academy.net","path":"/","frontend":"prod-cache-03"}
-
-        </script>```
+``` <script>  data = {"host":"0a0a007c030ae19c80036c210097001a.web-security-academy.net","path":"/","frontend":"prod-cache-03"} </script> ```
  
  <br>
  
@@ -191,13 +186,13 @@ RESP
  
 
 <br>
-```
+
 fehost
 "-alert(1)-"
 
 
-<script> data = {"host":"0ac5004b043c07b180c23a8a007d00de.web-security-academy.net","path":"/","frontend":""-alert(1)-""} </script>
-``` 
+```<script> data = {"host":"0ac5004b043c07b180c23a8a007d00de.web-security-academy.net","path":"/","frontend":""-alert(1)-""} </script>```
+
 
 
 <img width="1128" height="552" alt="image" src="https://github.com/user-attachments/assets/3bf7006e-b706-4bb9-8c83-a7f30a53b3a0" />
