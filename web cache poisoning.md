@@ -381,6 +381,3 @@ nie cachuje się query string, miss pojawia się dopiero przy age: 35 (czyli po 
 <br><br>
 
 /?cb=T'/><script>alert(1)</script>
-
-<img width="1186" height="469" alt="image" src="https://github.com/user-attachments/assets/a3666736-903a-4692-adec-c5b80c8ea12f" />
-
