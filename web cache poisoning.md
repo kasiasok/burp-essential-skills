@@ -317,7 +317,19 @@ Vary to nagłówek odpowiedzi HTTP, który mówi cache:
 X-host: malicioussource.io
 Serwer w odpowiedzi HTML wskazuje na złośliwy host, a przeglądarka ten plik pobierze
 
+<br><br>
+
 <img width="1196" height="560" alt="image" src="https://github.com/user-attachments/assets/2fe8b478-0c9c-40a8-a70b-aee9332cab48" />
+
+<br><br>
+
+<img width="1246" height="526" alt="image" src="https://github.com/user-attachments/assets/86528f0d-9c80-49e9-acb3-970e072552a8" />
+
+<img width="1487" height="748" alt="image" src="https://github.com/user-attachments/assets/d7be2c91-0389-401c-8f74-9fb9f88b6037" />
+
+
+
+<br><br>
 
 
 
