@@ -381,3 +381,15 @@ nie cachuje się query string, miss pojawia się dopiero przy age: 35 (czyli po 
 <br><br>
 
 /?cb=T'/><script>alert(1)</script>
+
+
+<br><br>
+<hr>
+<br><br>
+<h2>Lab: Web cache poisoning via an unkeyed query parameter</h2>
+
+ This lab is vulnerable to web cache poisoning because it excludes a certain parameter from the cache key. A user regularly visits this site's home page using Chrome.
+To solve the lab, poison the cache with a response that executes alert(1) in the victim's browser.
+Hint: Websites often exclude certain UTM analytics parameters from the cache key.
+
+
