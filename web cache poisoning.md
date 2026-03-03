@@ -310,6 +310,8 @@ resp: miss
 param miner > guess header
 x-host:
 
+CACHE KEY HERE: REQUEST METHOD & IT'S VALUE (/path/in/GET)
+
 response !!! VARY:USER AGENT
 
 serwer w odpowiedzi HTML wskazuje na złośliwy host, a przeglądarka ten plik pobierze
