@@ -1,6 +1,6 @@
 first test:
 miss - hit (cachowanie działa)
-
+(poprawnie znaleziony cache key)
 <hr>
 
 param miner:
@@ -413,3 +413,28 @@ browser: zasób /
 <hr>
 <br><br>
 <h2>Lab: Parameter cloaking</h2>
+
+for cache server theres two parameters and ony one is cache key
+
+<img width="1380" height="340" alt="image" src="https://github.com/user-attachments/assets/dcc08194-2f81-4d2f-aeba-7603b91909f4" />
+
+for web server it could be 1 parameter
+
+<img width="604" height="188" alt="image" src="https://github.com/user-attachments/assets/61ec4232-b594-46d4-bcc4-dc686f953134" />
+
+for specific frameworks like ruby on rails. ruby supports two delimiter special characters: & and ;
+
+<img width="816" height="173" alt="image" src="https://github.com/user-attachments/assets/808a601a-2999-417a-8c80-cb567a74a2e2" />
+
+<img width="783" height="162" alt="image" src="https://github.com/user-attachments/assets/0328ea5e-aa45-423e-8d98-0d437b73a9b6" />
+
+<img width="971" height="74" alt="image" src="https://github.com/user-attachments/assets/3dd1cca3-53e1-4047-be28-00275c7551d5" />
+
+rail param cloaking scan
+
+<img width="1129" height="672" alt="image" src="https://github.com/user-attachments/assets/55cd2b31-e799-4d51-ae8c-085777c0a3c9" />
+
+cache key
+
+<img width="1164" height="597" alt="image" src="https://github.com/user-attachments/assets/cf8357ce-56bc-49d9-a0cd-58a139d35232" />
+
