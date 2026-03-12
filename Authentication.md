@@ -162,7 +162,8 @@ Make a note of this password.
 3. log out w przeglądarce
 4. ponownie w przegladarce zaloguj sie na wiener:peter
 5. wpisz invalid 2fa token
-6. burp: z http history /login2 > intruder > wiener na carlos > payloadtype: bruteforce (dzięki brute force dowiemy się jaki kod zostal wygenerowany dla carlos)
+6. burp: z http history /login2 z mfa > intruder > wiener na carlos > payloadtype: bruteforce (dzięki brute force dowiemy się jaki kod zostal wygenerowany dla carlos)
+7. w repeater /login2 z mfa wprowadzamy poprawne dane (carlos i mfa) > reqest in browser in ORYGINAL session
 
 <img width="1188" height="472" alt="image" src="https://github.com/user-attachments/assets/72171c6f-e9fd-4d98-b03e-3940487d1bfc" />
 
@@ -170,6 +171,10 @@ Make a note of this password.
 <img width="1129" height="533" alt="image" src="https://github.com/user-attachments/assets/6d2fc9ae-11d9-44f4-8e1e-b9b129c7659c" />
 
 <img width="1150" height="210" alt="image" src="https://github.com/user-attachments/assets/37cf2e62-60cb-4b2a-a5ee-2135cf98889b" />
+<img width="1180" height="534" alt="image" src="https://github.com/user-attachments/assets/94cf0dd8-2bd6-4f9e-a6f0-43329a222bc8" />
+
+<img width="664" height="261" alt="image" src="https://github.com/user-attachments/assets/6eb91df4-f275-43e3-861e-ef3d2b93068e" />
+
 
 
 Load the 302 response in the browser.
