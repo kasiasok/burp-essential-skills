@@ -158,11 +158,11 @@ Make a note of this password.
 <h2>Lab: 2FA Broken Logic</h2>
 
 1. loguję się prawilnie z 2FA na moje konto wiener:peter
-2. w repeater /login2 wiener zamien na carlos (kod teraz jest generowany dla carlosa)
+2. w repeater /login2 wiener zamien na carlos (!!!kod teraz jest generowany dla carlosa)
 3. log out w przeglądarce
 4. ponownie w przegladarce zaloguj sie na peter:wiener
 5. wpisz invalid 2fa token
-6. burp: z http history /login2 > repeater > wiener na carlos > payloadtype: bruteforce
+6. burp: z http history /login2 > intruder > wiener na carlos > payloadtype: bruteforce (dzięki brute force dowiemy się jaki kod zostal wygenerowany dla carlos)
 
 <img width="1129" height="533" alt="image" src="https://github.com/user-attachments/assets/e39a5a93-85ce-4630-a4f0-9c645726c612" />
 
