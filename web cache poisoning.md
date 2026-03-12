@@ -455,4 +455,86 @@ not work:
 <img width="1113" height="522" alt="image" src="https://github.com/user-attachments/assets/77cea944-177a-435b-bafb-09bf98d7f2c1" />
 
 
+GET
 
+/js/geolocate.js?callback=setCountryCookie&utm_content=foo;callback=arbitraryFunction
+
+/js/geolocate.js?callback=setCountryCookie&utm_content=foo;callback=alert(1)
+
+ 
+
+Cookie: United Kingdom
+
+<br><br>
+<hr>
+<br><br>
+<h2>Lab: Web cache poisoning via a fat GET request</h2>
+
+Ten endpoint nie okłada mi się w burp, ale widzę go w network
+
+<img width="640" height="678" alt="image" src="https://github.com/user-attachments/assets/6f1972d0-2a5d-48b0-96f6-4a385ec61aad" />
+
+<img width="724" height="271" alt="image" src="https://github.com/user-attachments/assets/02f8030c-ad09-414b-b359-736367b4cb6c" />
+
+Odbicie wartości z GET query w body response
+
+<img width="943" height="616" alt="image" src="https://github.com/user-attachments/assets/9939ebbc-2b7c-4343-8664-b6ab58656596" />
+
+Trying parameter cloaking
+
+/js/geolocate.js?callback=value1&param2=value2;param3=value3
+
+<img width="931" height="628" alt="image" src="https://github.com/user-attachments/assets/e896e79d-0d9f-4ca9-b2eb-44b0a7b0d8ae" />
+
+I co jeśli zamienimy parametr3 na parametr1(czyli znów callback)
+
+/js/geolocate.js?callback=value1&param2=value2;callback=value3
+
+Brak zmian
+
+<img width="936" height="568" alt="image" src="https://github.com/user-attachments/assets/d7ebddbe-7026-45a8-8442-e62f9e78be8e" />
+
+Zaznaczamy tylko ten fragment /js/geolocate.js? i skanujemy param miner > fat GET 
+
+Fat GET = GET z body
+
+Ale nie możemy zmienić methody na POST bo w post nie ma nagówków Cachowania po stronie serwera.
+
+<img width="1209" height="715" alt="image" src="https://github.com/user-attachments/assets/731a3e5e-66d4-4b90-a7f3-6f906d62f8fa" />
+
+Dodajemy do oryginalnego requestu skryptu geolokacji nagłówek i body ze skanu
+
+<img width="1090" height="709" alt="image" src="https://github.com/user-attachments/assets/ebe911ff-84dd-4a99-bb8b-25471bda3d74" />
+
+
+<br><br>
+<hr>
+<br><br>
+<h2>Lab: Web cache poisoning via a fat GET request</h2>
+
+Browser URL encoding:
+
+<script>
+
+%3cscript%3e
+
+
+In the scan we choose normalize path bo nie mamy w GET żadnego query i parameter.
+
+<img width="876" height="718" alt="image" src="https://github.com/user-attachments/assets/89b7d7d2-7acf-4efa-b882-1d0c411789d2" />
+
+Wybieram request gdzie odpowiedz jej 404
+
+<img width="673" height="522" alt="image" src="https://github.com/user-attachments/assets/d0acb398-2b6f-4465-b4a2-b955a3629096" />
+
+<img width="939" height="439" alt="image" src="https://github.com/user-attachments/assets/c9486694-12d3-4763-9d85-ee09d341e764" />
+
+Payload > cache miss-hit> ppm > copy url > deliver to the victim
+
+ 
+
+Payload GET /random</p><script>alert(1)</script><p>foo
+
+Zamienia się na URL encoded po odświeżeniu strony w przeglądarce chyba czasem, albo randomowo. Ale nie potrzeba url encoded odpowiedzi, żeby zaliczyć.
+
+ <img width="1018" height="586" alt="image" src="https://github.com/user-attachments/assets/7bebbcd2-afbc-41d1-80b0-af2c7484accd" />
