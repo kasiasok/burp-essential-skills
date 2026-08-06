@@ -1,0 +1,62 @@
+Warunki CSRF — po polsku i technicznie
+
+---
+1. A relevant action — "Istotna akcja"
+
+Aplikacja musi mieć akcję wartą atakowania — coś co zmienia stan po stronie serwera i jest wartościowe dla atakującego.
+
+Przykłady:
+- zmiana emaila (/my-account/change-email)
+- zmiana hasła
+- transfer środków
+- dodanie admina
+
+Statyczne strony (tylko GET, tylko odczyt) nie mają sensu jako cel CSRF.
+
+---
+2. Cookie-based session handling — "Sesja oparta na cookie"
+
+Serwer identyfikuje użytkownika wyłącznie przez cookie — nie przez nagłówek Authorization, nie przez token w URL, nie przez API key w headerze.
+
+Dlaczego to ma znaczenie technicznie: przeglądarka automatycznie dołącza cookie do każdego requestu do danej domeny, niezależnie od tego skąd ten request pochodzi. Czyli jeśli ofiara jest zalogowana i jej przeglądarka odwiedza twoją stronę — jej cookie poleci razem z requestem do serwera.
+
+Gdyby sesja była w nagłówku Authorization: Bearer TOKEN — przeglądarka nie wysłałaby go automatycznie i CSRF by nie zadziałał.
+
+---
+3. No unpredictable request parameters — "Brak nieprzewidywalnych parametrów"
+
+Request nie może zawierać niczego czego nie możesz zgadnąć ani zdobyć przed atakiem.
+
+Technicznie: jeśli do /change-email musisz wysłać csrf=TOKEN, a token jest losowy i unikalny per sesja — nie możesz go wpisać w swój formularz, bo go nie znasz.
+
+Jeśli jednak:
+- tokenu w ogóle nie ma → CSRF działa
+- token jest stały → wpisujesz go na sztywno
+- token możesz odczytać przez XSS → CSRF + XSS w łańcuchu
+- token nie jest powiązany z sesją → używasz własnego tokenu w payloadzie ofiary
+
+---
+Jednym zdaniem
+
+▎ CSRF działa gdy: akcja coś zmienia + przeglądarka sama dołącza cookie + nie ma sekretu którego nie możesz znać.
+
+
+
+
+
+Laby CSRF:
+CSRF - Lab #1 CSRF vulnerability with no defenses - BRAK CSRF
+CSRF - Lab #2 CSRF where token validation depends on request method 
+CSRF - Lab #3 CSRF where token validation depends on token being present
+CSRF - Lab #4 CSRF where token is not tied to user session 
+CSRF - Lab #5 CSRF where token is tied to non-session cookie
+CSRF - Lab #6 CSRF where token is duplicated in cookie
+CSRF - Lab #7 CSRF where Referer validation depends on header being present 
+CSRF - Lab #8 CSRF with broken Referer validation w head <meta name="referrer" content="no-referrer">
+
+
+
+
+Jak przeprowadzamy atak:
+za każdym atakiem wartość np. mail musi być nowa
+wklejamy kod w exploit server
