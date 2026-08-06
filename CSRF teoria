@@ -1,4 +1,14 @@
 Warunki CSRF — po polsku i technicznie
+WP_NONCE można traktować jak csrf i testować jak csrf.
+
+
+
+1. A relevant action — "Istotna akcja"
+2. Cookie-based session handling — "Sesja oparta na cookie" (nie bearer)
+3. No unpredictable request parameters — "Brak nieprzewidywalnych parametrów"
+
+
+_____________________________________________________________
 
 ---
 1. A relevant action — "Istotna akcja"
@@ -40,23 +50,30 @@ Jednym zdaniem
 
 ▎ CSRF działa gdy: akcja coś zmienia + przeglądarka sama dołącza cookie + nie ma sekretu którego nie możesz znać.
 
+______________________________________________________
+Testing CSRF Tokens:
+1. Remove the CSRF token and see if application accepts request (302 ok) 
+2. Change the request method from POST to GET (and delete token)
+3. Copy csrf from difeerent session and mix with your cookie
 
-
-
-
-Laby CSRF:
-CSRF - Lab #1 CSRF vulnerability with no defenses - BRAK CSRF
-CSRF - Lab #2 CSRF where token validation depends on request method 
-CSRF - Lab #3 CSRF where token validation depends on token being present
-CSRF - Lab #4 CSRF where token is not tied to user session 
-CSRF - Lab #5 CSRF where token is tied to non-session cookie
-CSRF - Lab #6 CSRF where token is duplicated in cookie
-CSRF - Lab #7 CSRF where Referer validation depends on header being present 
-CSRF - Lab #8 CSRF with broken Referer validation w head <meta name="referrer" content="no-referrer">
-
-
-
+In order to exploit this vulnerability, we need to perform 2 things:
+1. Inject a csrfKey cookie in the user's session (HTTP Header injection) - satisfied
+2. Send a CSRF attack to the victim with a known csrf token
 
 Jak przeprowadzamy atak:
-za każdym atakiem wartość np. mail musi być nowa
-wklejamy kod w exploit server
+test w intruder: 302 ok > KOD (regenerate + options> include auto submit) > kod wklejamy do exploit server
+
+_______________________________________________________
+Laby CSRF:
+CSRF - Lab #1 CSRF vulnerability with no defenses - BRAK CSRF. WKLEJAM ZWYKLY KOD CSRF Z NOWYM MAILEM W EXPLOIT SERVER.
+CSRF - Lab #2 CSRF where token validation depends on request method CHANGE REQUEST METHOD (POST > GET) + USUNĄĆ CSRF TOKEN. (test w reapeater. 302>ok) KOD CSRF > EXPLOIT SERVER. (metoda GET nie wymaga CSRF)
+CSRF - Lab #3 CSRF where token validation depends on token being present  (Remove token + change request method)
+CSRF - Lab #4 CSRF where token is not tied to user session (otworzy drugą sesję incognito i przekleić csrf (inspct>najedznachangeemailokno>copy csrf) do naszego requestu.). KOD CSRF: mail attacker i csrf attackera (z drugiej sesji)
+CSRF - Lab #5 CSRF where token is tied to non-session cookie - gdy csrf_token jest przypisany do csrf_ciasteczka i gdy mamy ciasteczko np. _lastsearch=fraze - jw tylko wklejamy tez csrf_ciasteczko attackera. img src kod zamiast include auto submit.
+CSRF - Lab #6 CSRF where token is duplicated in cookie
+CSRF - Lab #7 CSRF where Referer validation depends on header being present   (remove csrf -> repeater: invalid referer -> remove referer > KOD CSRF tp EXPLOT <meta name="referrer" content="no-referrer">)
+CSRF - Lab #8 CSRF with broken Referer validation zmieniamy kod csrf pushstate .. .. /host
+
+
+
+
