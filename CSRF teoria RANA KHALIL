@@ -3,6 +3,7 @@ WP_NONCE można traktować jak csrf i testować jak csrf.
 
 
 
+
 1. A relevant action — "Istotna akcja"
 2. Cookie-based session handling — "Sesja oparta na cookie" (nie bearer)
 3. No unpredictable request parameters — "Brak nieprzewidywalnych parametrów"
