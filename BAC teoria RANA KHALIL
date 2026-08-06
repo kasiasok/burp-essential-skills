@@ -1,0 +1,17 @@
+Labs BAC: 
+
+Lab #1 Unprotected admin functionality
+Lab #2 Unprotected admin functionality with unpredictable URL
+Lab #4 User role can be modified in user profile
+Lab #3 User role controlled by request parameter
+Lab #5 URL-based access control can be circumvented
+Lab #6 Method-based access control can be circumvented
+Lab #7 User ID controlled by request parameter
+Lab #8 UID controlled by parameter, with unpredictable UIDs
+Lab #9 UID controlled by param with data leakage in redirect
+Lab #10 User ID controlled by param with password disclosure
+Lab #11 Insecure direct object references
+Lab #12 Multi-step process with no access control on one step
+Lab # 13 Referer-based access control
+
+
